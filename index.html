@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>机械化主题网站</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/your-fontawesome-kit.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="/Users/benson/编程/imgs/WechatIMG724.jpg" alt="公司Logo">
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home">首页</a></li>
+                <li><a href="#intro">机械化简介</a></li>
+                <li><a href="#tech">技术与设备</a></li>
+                <li><a href="#industries">行业应用</a></li>
+                <li><a href="#news">新闻与案例</a></li>
+                <li><a href="#contact">联系我们</a></li>
+            </ul>
+            <div class="language-switch">
+                <select>
+                    <option value="zh">中文</option>
+                    <option value="en">English</option>
+                </select>
+            </div>
+            <div class="search-bar">
+                <input type="text" placeholder="搜索...">
+                <button><i class="fas fa-search"></i></button>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section id="banner">
+            <video autoplay muted loop id="myVideo">
+                <source src="path_to_your_video.mp4" type="video/mp4">
+            </video>
+            <div class="banner-content">
+                <h1>机械化驱动未来产业</h1>
+                <p>通过先进的自动化技术，实现生产效率与质量的双提升</p>
+                <a href="#contact" class="cta-button">联系我们</a>
+            </div>
+        </section>
+
+        <section id="news-and-cases">
+            <div class="news">
+                <h2>最新动态</h2>
+                <!-- 添加新闻列表项 -->
+            </div>
+            <div class="cases">
+                <h2>热门案例</h2>
+                <!-- 添加案例卡片 -->
+            </div>
+        </section>
+
+        <section id="tech-showcase">
+            <h2>机械化技术与设备</h2>
+            <div class="tech-grid">
+                <!-- 添加技术展示方块 -->
+            </div>
+        </section>
+
+        <section id="industries">
+            <h2>行业应用</h2>
+            <div class="industry-grid">
+                <!-- 添加行业应用卡片 -->
+            </div>
+        </section>
+
+        <section id="testimonials-partners">
+            <div class="testimonials">
+                <h2>客户反馈</h2>
+                <!-- 添加客户反馈滚动 -->
+            </div>
+            <div class="partners">
+                <h2>合作伙伴</h2>
+                <!-- 添加合作伙伴Logo -->
+            </div>
+        </section>
+
+        <section id="blog">
+            <h2>新闻与博客</h2>
+            <div class="blog-grid">
+                <!-- 添加博客文章卡片 -->
+            </div>
+        </section>
+
+        <!-- 新添加的 AI 功能部分 -->
+        <section id="ai-feature">
+            <h2>AI 文本分析</h2>
+            <div class="ai-container">
+                <textarea id="userInput" placeholder="输入一些文本进行分析..."></textarea>
+                <button onclick="analyzeText()">分析</button>
+                <div id="result"></div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="company-info">
+            <!-- 添加公司信息 -->
+        </div>
+        <div class="quick-links">
+            <!-- 添加快速链接 -->
+        </div>
+        <div class="social-media">
+            <!-- 添加社交媒体图标 -->
+        </div>
+        <div class="newsletter">
+            <h3>订阅我们的通讯</h3>
+            <form>
+                <input type="email" placeholder="输入您的邮箱">
+                <button type="submit">订阅</button>
+            </form>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <!-- 新添加的 AI 功能脚本 -->
+    <script>
+        function analyzeText() {
+            const userInput = document.getElementById('userInput').value;
+            const result = document.getElementById('result');
+            
+            // 简单的 AI "分析"
+            const wordCount = userInput.split(/\s+/).filter(word => word.length > 0).length;
+            const sentiment = userInput.toLowerCase().includes('好') || userInput.toLowerCase().includes('喜欢') ? '积极' : '中性';
+            
+            result.innerHTML = `<h3>分析结果：</h3>
+                                <p>词数：${wordCount}</p>
+                                <p>情感：${sentiment}</p>`;
+        }
+    </script>
+</body>
+</html>
