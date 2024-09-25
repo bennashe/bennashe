@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>个人网站 - 机械化与AI</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* AI聊天按钮样式 */
+        .chat-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #ff6600;
+            color: #fff;
+            border: none;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            font-size: 24px;
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        /* AI聊天窗口样式 */
+        .chat-window {
+            position: fixed;
+            bottom: 90px;
+            right: 20px;
+            width: 300px;
+            max-height: 400px;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            display: none;
+            flex-direction: column;
+        }
+
+        .chat-header {
+            background-color: #ff6600;
+            color: #fff;
+            padding: 10px;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+            text-align: center;
+        }
+
+        .chat-body {
+            flex: 1;
+            padding: 10px;
+            overflow-y: auto;
+        }
+
+        .chat-input {
+            display: flex;
+            border-top: 1px solid #ccc;
+        }
+
+        .chat-input input {
+            flex: 1;
+            padding: 10px;
+            border: none;
+            border-bottom-left-radius: 10px;
+        }
+
+        .chat-input button {
+            background-color: #ff6600;
+            color: #fff;
+            border: none;
+            padding: 10px;
+            border-bottom-right-radius: 10px;
+            cursor: pointer;
+        }
+
+        /* 首屏横幅样式 */
+        .hero {
+            background: url('./imgs/photo.png') no-repeat center center/cover;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: #fff;
+        }
+
+        /* 卡片样式 */
+        .card {
+            background-color: #ffffff;
+            border: 1px solid #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            margin: 10px 0;
+        }
+
+        .tech-module {
+            margin-bottom: 20px;
+        }
+
+        /* 导航栏样式 */
+        .nav-squares {
+            display: flex;
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .nav-squares li {
+            margin: 0 5px;
+        }
+
+        .nav-squares a {
+            display: block;
+            width: 80px;
+            height: 80px;
+            background-color: #ff6600;
+            color: #fff;
+            text-decoration: none;
+            text-align: center;
+            line-height: 80px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-squares a:hover {
+            background-color: #ff8533;
+            transform: scale(1.05);
+        }
+
+        .nav-squares a span {
+            display: inline-block;
+            vertical-align: middle;
+            line-height: normal;
+        }
+
+        .about-card {
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin: 20px auto;
+            max-width: 800px;
+        }
+
+        .about-card img {
+            max-width: 200px;
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            display: block;
+        }
+
+        .about-card h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        .about-card p {
+            text-align: center;
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .skill {
+            background-color: #ff6600;
+            color: #fff;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <div class="logo">F1 in school | Engineer</div>
+        
+        <div class="header-right">
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Project</a></li>
+                <li><a href="#ai-tech">technology</a></li>
+                <li><a href="#contact">Contract
+                </a></li>
+            </ul>
+        </nav>
+        </div>
+    </header>
+
+    <!-- 首屏横幅 -->
+    <section class="hero" id="home">
+        <h1>Team name</h1>
+        <p>Team menber</p>
+        <div class="cta-buttons">
+            <a href="#about">About more</a>
+            <a href="#projects">Project</a>
+        </div>
+    </section>
+
+    <!-- 关于我部分 -->
+    <section class="about" id="about">
+        <div class="about-card">
+            <img src="logo.png" alt="Benson">
+            <h2>About</h2>
+            <p>F1 in school</p>
+            <div class="skills">
+                <div class="skill">Graphic design</div>
+                <div class="skill">3D modeling</div>
+                <div class="skill">Automation system design</div>
+                <div class="skill">Coding</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 项目展示部分 -->
+    <section class="projects" id="projects">
+        <h2>Project presentation</h2>
+        <div class="project-card">
+            <div class="card">
+                <img src="Project.png" alt="项目1">
+                <div class="card-content">
+                    <h3>F1 car</h3>
+                    <p>CAr</p>
+                    <a href="#">More details</a>
+                </div>
+            </div>
+            <div class="card">
+                <img src="Project.png" alt="项目2">
+                <div class="card-content">
+                    <h3>2</h3>
+                    <p>F1 car</p>
+                    <a href="#">More details</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI 技术展示部分 -->
+    <section class="ai-tech" id="ai-tech">
+        <h2>Team</h2>
+        <div class="tech-module">
+            <div class="card">
+                <h3>Manufactory</h3>
+                <p>。</p>
+            </div>
+        </div>
+        <div class="tech-module">
+            <div class="card">
+                <h3>Graphic engineering</h3>
+                <p>。</p>
+            </div>
+        </div>
+        <div class="tech-module">
+            <div class="card">
+                <h3>。</h3>
+                <p>。</p>
+            </div>
+        </div>
+        <div class="tech-module">
+            <div class="card">
+                <h3>.<div class=""></div></h3>
+                <p>。</p>
+            </div>
+    </section>
+
+    <!-- 联系我部分 -->
+    <section class="contact" id="contact">
+        <h2>Contract</h2>
+        <form action="submit_form.php" method="post">
+            <input type="text" name="name" placeholder="Name" required>
+            <input type="email" name="email" placeholder="Email" required>
+            <textarea name="message" placeholder="Message" required></textarea>
+            <input type="submit" value="Send">
+        </form>
+        <div class="social-icons">
+            <a href="https://www.linkedin.com/in/johndoe" target="_blank">LinkedIn</a>
+            <a href="https://github.com/johndoe" target="_blank">GitHub</a>
+            <a href="https://twitter.com/johndoe" target="_blank">Twitter</a>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer>
+        <p>© 2025 F1 in school.</p>
+        <div class="social-icons">
+            <a href="https://www.linkedin.com/in/johndoe" target="_blank">LinkedIn</a>
+            <a href="https://github.com/johndoe" target="_blank">GitHub</a>
+            <a href="https://twitter.com/johndoe" target="_blank">Twitter</a>
+        </div>
+    </footer> F1 in school
+
+    <!-- AI聊天钮和窗口 -->
+    <button class="chat-button" onclick="toggleChat()">💬</button>
+    <div class="chat-window" id="chatWindow">
+        <div class="chat-header">AI Chat</div>
+        <div class="chat-body" id="chatBody"></div>
+        <div class="chat-input">
+            <input type="text" id="chatInput" placeholder="Input message...">
+            <button onclick="sendMessage()">Send</button>
+        </div>
+    </div>
+
+    <script>
+        function toggleChat() {
+            const chatWindow = document.getElementById('chatWindow');
+            chatWindow.style.display = chatWindow.style.display === 'none' ? 'flex' : 'none';
+        }
+
+        function sendMessage() {
+            const chatInput = document.getElementById('chatInput');
+            const chatBody = document.getElementById('chatBody');
+            const message = chatInput.value.trim();
+            if (message) {
+                const userMessage = document.createElement('div');
+                userMessage.textContent = '你: ' + message;
+                chatBody.appendChild(userMessage);
+                chatInput.value = '';
+
+                // 模拟AI回复
+                setTimeout(() => {
+                    const aiMessage = document.createElement('div');
+                    aiMessage.textContent = 'AI: ' + getAIResponse(message);
+                    chatBody.appendChild(aiMessage);
+                    chatBody.scrollTop = chatBody.scrollHeight;
+                }, 1000);
+            }
+        }
+
+        function getAIResponse(message) {
+            // 简单的AI回复逻辑，可以根据需要进行扩展
+            if (message.includes('Hello')) {
+                return 'Hello! What can I help you with?';
+            } else if (message.includes('Project')) {
+                return 'You can view my projects in the project display section.';
+            } else {
+                return 'Sorry, I don\'t quite understand your meaning.';
+            }
+        }
+    </script>
+</body>
+</html>
